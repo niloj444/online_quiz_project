@@ -1,0 +1,6 @@
+package com.quiz.dao;
+import com.quiz.model.Notification; import com.quiz.util.DBConnection; import java.sql.*; import java.util.*;
+public class NotificationDAO {
+ public void save(int teacherId,int quizId,String title,String message)throws SQLException{String sql="INSERT INTO notifications (teacher_id,quiz_id,title,message) SELECT ?,?,?,? FROM quizzes WHERE id=? AND teacher_id=?";try(Connection c=DBConnection.get();PreparedStatement p=c.prepareStatement(sql)){p.setInt(1,teacherId);p.setInt(2,quizId);p.setString(3,title);p.setString(4,message);p.setInt(5,quizId);p.setInt(6,teacherId);p.executeUpdate();}}
+ public List<Notification> findPublished()throws SQLException{List<Notification> out=new ArrayList<>();String sql="SELECT n.id,n.quiz_id,n.title,n.message,n.created_at FROM notifications n JOIN quizzes q ON q.id=n.quiz_id WHERE q.published=TRUE ORDER BY n.created_at DESC";try(Connection c=DBConnection.get();PreparedStatement p=c.prepareStatement(sql);ResultSet r=p.executeQuery()){while(r.next()){Notification n=new Notification();n.setId(r.getInt("id"));n.setQuizId(r.getInt("quiz_id"));n.setTitle(r.getString("title"));n.setMessage(r.getString("message"));n.setCreatedAt(r.getTimestamp("created_at"));out.add(n);}}return out;}
+}

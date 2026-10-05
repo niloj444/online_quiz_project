@@ -1,0 +1,3 @@
+package com.quiz.model;
+public class SubjectPerformance { private String subject; private int attempts, highest, passed, failed; private double average;
+ public String getSubject(){return subject;} public void setSubject(String v){subject=v;} public int getAttempts(){return attempts;} public void setAttempts(int v){attempts=v;} public int getHighest(){return highest;} public void setHighest(int v){highest=v;} public int getPassed(){return passed;} public void setPassed(int v){passed=v;} public int getFailed(){return failed;} public void setFailed(int v){failed=v;} public double getAverage(){return average;} public void setAverage(double v){average=v;} public String getAverageDisplay(){return String.format("%.1f",average)+"%";} }

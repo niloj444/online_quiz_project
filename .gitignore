@@ -1,0 +1,31 @@
+@"
+# Maven
+target/
+
+# Java compiled files
+*.class
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Environment and secrets
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Tomcat generated files
+work/
+temp/
+
+# Local database/config files
+*.local
+"@ | Set-Content ".gitignore"
