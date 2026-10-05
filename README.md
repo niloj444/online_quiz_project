@@ -343,10 +343,3 @@ Fork → Create branch → Make focused changes → Build/test → Commit → Pu
 
 Keep servlet/JSP/JDBC architecture, update SQL migrations for schema changes, and update this README when behaviour changes.
 
-## 29. License
-
-License has not yet been specified.
-
-## 30. Author / Project Information
-
-No author, organization, or affiliation is declared in the repository.
